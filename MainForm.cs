@@ -10,6 +10,9 @@ namespace SimpleKakeibo
 {
 	public partial class MainForm : Form
 	{
+		string version = "1.0";
+		Copyright copyright = new Copyright(2021, 2022, "Sora Arakawa");
+
 		string mode = "";
 		int total;
 		int year;
@@ -34,6 +37,8 @@ namespace SimpleKakeibo
 				}
 				sr.Close();
 			}
+			versionLabel.Text = "Version " + version;
+			copyrightLabel.Text = copyright.getText();
 			SceneProcess("mainmenu");
 		}
 
@@ -116,6 +121,8 @@ namespace SimpleKakeibo
 				label1.Text = total2.PadLeft(8, ' ');
 				label1.Visible = true;
 				label2.Visible = false;
+				versionLabel.Visible = true;
+				copyrightLabel.Visible = true;
 				dateTimePicker1.Visible = false;
 				numericUpDown1.Visible = false;
 				textBox1.Visible = false;
@@ -124,6 +131,8 @@ namespace SimpleKakeibo
 			if (m == "input" || m == "output")
 			{
 				label1.Visible = false;
+				versionLabel.Visible = false;
+				copyrightLabel.Visible = false;
 				dateTimePicker1.Visible = true;
 				textBox1.Visible = true;
 				textBox1.ReadOnly = false;
@@ -145,6 +154,8 @@ namespace SimpleKakeibo
 				year = DateTime.Today.Year;
 				month = DateTime.Today.Month;
 				label1.Visible = false;
+				versionLabel.Visible = false;
+				copyrightLabel.Visible = false;
 				CreateMonthList();
 				label2.Visible = true;
 				dataGridView1.Visible = true;
@@ -213,6 +224,7 @@ namespace SimpleKakeibo
 				}
 			}
 			dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Ascending);
+			/*
 			dataGridView1.Rows.Add("", "", "", "");
 			dataGridView1.Rows.Add("収入の合計", inputMoney, "", "");
 			dataGridView1.Rows.Add("支出の合計", outputMoney, "", "");
@@ -225,6 +237,7 @@ namespace SimpleKakeibo
 			{
 				dataGridView1.Rows.Add("", Math.Abs(checker) + "円の赤字です", "", "");
 			}
+			*/
 		}
 	}
 }
