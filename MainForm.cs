@@ -90,7 +90,7 @@ namespace SimpleKakeibo
 				if (x >= 429 && x <= 530 && y >= 77 && y <= 112)
 				{
 					month--;
-					if (month < 1) { year--;month = 12; }
+					if (month < 1) { year--; month = 12; }
 					CreateMonthList();
 				}
 				if (x >= 669 && x <= 770 && y >= 77 && y <= 112)
@@ -98,6 +98,14 @@ namespace SimpleKakeibo
 					month++;
 					if (month > 12) { year++; month = 1; }
 					CreateMonthList();
+				}
+				if (x >= 29 && x <= 110 && y >= 392 && y <= 432)
+				{
+					// TODO: 編集ボタンの動作
+				}
+				if (x >= 119 && x <= 200 && y >= 392 && y <= 432)
+				{
+					// TODO: 削除ボタンの動作
 				}
 			}
 		}
